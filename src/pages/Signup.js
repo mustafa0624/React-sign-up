@@ -31,13 +31,32 @@ export default function Signup() {
 
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
-                        <TextField id="displayName" label="Display Name" variant="outlined" fullWidth onChange={formik.handleChange} value={formik.values.displayName} />
+                        <TextField
+                            id="displayName"
+                            label="Display Name"
+                            variant="outlined"
+                            fullWidth
+                            onChange={formik.handleChange}
+                            value={formik.values.displayName} />
                     </Grid>
                     <Grid item xs={12}>
-                        <TextField id="email" label="Email" variant="outlined" fullWidth onChange={formik.handleChange} value={formik.values.email} />
+                        <TextField 
+                        id="email"
+                        label="Email" 
+                        variant="outlined" 
+                        fullWidth 
+                        onChange={formik.handleChange} 
+                        value={formik.values.email} />
                     </Grid>
                     <Grid item xs={12}>
-                        <TextField id="password" label="Password" variant="outlined" fullWidth onChange={formik.handleChange} value={formik.values.password} />
+                        <TextField 
+                        id="password"
+                         label="Password" 
+                         variant="outlined"
+                         type='password'
+                          fullWidth 
+                          onChange={formik.handleChange} 
+                          value={formik.values.password} />
 
                     </Grid>
                     <Grid item xs={12}>
