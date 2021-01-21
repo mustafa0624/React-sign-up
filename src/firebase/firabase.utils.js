@@ -1,6 +1,7 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 import firebase from "firebase/app";
+import "firebase/auth"
 
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -18,4 +19,10 @@ const proConfig = {}
 
 const config = process.env.NODE_ENV === "development" ? devConfig : proConfig
 
-firebase.initializeApp(config)
+class Firebase{
+    constructor(){
+        firebase.initializeApp(config)
+        this.firebaseAuth = Firebase.auth()
+    }
+}
+
