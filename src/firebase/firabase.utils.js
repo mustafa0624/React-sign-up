@@ -22,7 +22,20 @@ const config = process.env.NODE_ENV === "development" ? devConfig : proConfig
 class Firebase{
     constructor(){
         firebase.initializeApp(config)
-        this.firebaseAuth = Firebase.auth()
+        this.firebaseAuth = firebase.auth()
+    }
+
+    register(email,password){
+        this.firebaseAuth.createUserWithEmailAndPassword(email,password)
+
+    }
+
+    useGoogleProvider(){
+       const googleProvider = new firebase.auth.GoogleAuthProvider();
+       googleProvider.setCustomParameters({promt:"select_account"})
+       this.firebaseAuth.signInWithPopup(googleProvider)
     }
 }
+
+export default new Firebase()
 
