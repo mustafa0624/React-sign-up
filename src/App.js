@@ -2,6 +2,7 @@
 import './App.css';
 import Signup from "./pages/Signup"
 import NavBar from "./components/Navbar"
+import Signin from "./pages/Signin" 
 
 function App() {
   
@@ -9,6 +10,8 @@ function App() {
   return (
     <div className="App">
     <NavBar/>
+    <Signin/>
+
     <Signup/>
     </div>
   );

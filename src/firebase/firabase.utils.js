@@ -34,6 +34,7 @@ class Firebase{
        const googleProvider = new firebase.auth.GoogleAuthProvider();
        googleProvider.setCustomParameters({promt:"select_account"})
        this.firebaseAuth.signInWithPopup(googleProvider)
+    
     }
 }
 

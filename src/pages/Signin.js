@@ -12,46 +12,40 @@ const styleFunc = makeStyles({
 
 
 
-export default function Signup() {
+export default function Signin() {
 
     const formik = useFormik({
         initialValues: {
-            displayName: "",
-            email: '',
-            password: "",
+          email: '',
+          password:"",
         },
         onSubmit: values => {
-            // alert(JSON.stringify(values, null, 2));
-            Firebase.register(values.email,values.password)
+          alert(JSON.stringify(values, null, 2));
         },
-    });
+      });
+
+   
     const GoogleHandle=()=>{
         Firebase.useGoogleProvider()
     }
     const signupStyles = styleFunc();
     return (
         <Container className={signupStyles.wrapper} maxWidth="sm">
-            <form onSubmit={formik.handleSubmit}>
+            
 
+            <form onSubmit={formik.handleSubmit}>
+           
                 <Grid container spacing={3}>
-                    <Grid item xs={12}>
-                        <TextField
-                            id="displayName"
-                            label="Display Name"
-                            variant="outlined"
-                            fullWidth
-                            onChange={formik.handleChange}
-                            value={formik.values.displayName}
-                            required />
-                    </Grid>
+                    
                     <Grid item xs={12}>
                         <TextField 
                         id="email"
                         label="Email" 
                         variant="outlined" 
                         fullWidth 
-                        onChange={formik.handleChange} 
                         value={formik.values.email}
+                        onChange={formik.handleChange}
+                      
                         required />
                     </Grid>
                     <Grid item xs={12}>
@@ -61,14 +55,15 @@ export default function Signup() {
                          variant="outlined"
                          type='password'
                           fullWidth 
-                          onChange={formik.handleChange} 
-                          value={formik.values.password} 
+                          value={formik.values.password}
+                          onChange={formik.handleChange}
+                         
                           required/>
 
                     </Grid>
                     <Grid item xs={12}>
                         <Button type="submit" variant="contained" color="primary" fullWidth>
-                            Register
+                            Login
                     </Button>
 
                     </Grid>
@@ -76,13 +71,14 @@ export default function Signup() {
                     <Grid item xs={12}>
 
                         <Button variant="contained" color="primary" fullWidth onClick={GoogleHandle}>
-                            Signup with Google
+                            Signin with Google
                     </Button>
 
                     </Grid>
 
                 </Grid>
             </form>
+            
 
         </Container>
     )
