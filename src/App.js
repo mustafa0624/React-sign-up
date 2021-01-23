@@ -1,19 +1,16 @@
 
 import './App.css';
-import Signup from "./pages/Signup"
-import NavBar from "./components/Navbar"
-import Signin from "./pages/Signin" 
+
+import Router from "./Router/Router"
+import AuthContext from "./context/AuthContext"
 
 function App() {
   
-  console.log(process.env)
+  
   return (
-    <div className="App">
-    <NavBar/>
-    <Signin/>
-
-    <Signup/>
-    </div>
+    <AuthContext >
+   <Router/>
+    </AuthContext>
   );
 }
 
