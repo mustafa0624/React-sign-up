@@ -58,7 +58,7 @@ export default function NavBar() {
           <Typography variant="h6" className={classes.title}>
             React Navbar
           </Typography>
-          {auth && (
+          {currentUser && (
             <div>
               <IconButton
                 aria-label="account of current user"

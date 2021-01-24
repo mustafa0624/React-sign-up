@@ -22,7 +22,7 @@ export default function Signup() {
         },
         onSubmit: values => {
             // alert(JSON.stringify(values, null, 2));
-            Firebase.register(values.email,values.password)
+            Firebase.register(values.displayName,values.email,values.password)
         },
     });
     const GoogleHandle=()=>{

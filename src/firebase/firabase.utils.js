@@ -19,28 +19,35 @@ const proConfig = {}
 
 const config = process.env.NODE_ENV === "development" ? devConfig : proConfig
 
-class Firebase{
-    constructor(){
+class Firebase {
+    constructor() {
         firebase.initializeApp(config)
         this.firebaseAuth = firebase.auth()
     }
 
-    register(email,password){
-        this.firebaseAuth.createUserWithEmailAndPassword(email,password)
+    async register(displayName, email, password) {
+        try{
+
+            await this.firebaseAuth.createUserWithEmailAndPassword( email, password)
+            this.firebaseAuth.currentUser.updateProfile({ displayName })
+        }
+        catch(err){
+            console.log("Firebase err:",err)
+        }
 
     }
 
-    useGoogleProvider(){
-       const googleProvider = new firebase.auth.GoogleAuthProvider();
-       googleProvider.setCustomParameters({promt:"select_account"})
-       this.firebaseAuth.signInWithPopup(googleProvider)
-    
+    useGoogleProvider() {
+        const googleProvider = new firebase.auth.GoogleAuthProvider();
+        googleProvider.setCustomParameters({ promt: "select_account" })
+        this.firebaseAuth.signInWithPopup(googleProvider)
+
     }
-    signIn(email,password){
-        this.firebaseAuth.signInWithEmailAndPassword(email,password)
+    signIn(email, password) {
+        this.firebaseAuth.signInWithEmailAndPassword(email, password)
     }
 
-    signOut(){
+    signOut() {
         this.firebaseAuth.signOut()
     }
 }
