@@ -8,7 +8,7 @@ function Router() {
 
 
     return (
-        <BrowserRouter className="App">
+        <BrowserRouter>
             <NavBar />
             <Switch>
                 <Route path="/register" component={Signup} exact/>

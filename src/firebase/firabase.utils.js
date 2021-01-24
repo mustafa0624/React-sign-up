@@ -36,6 +36,13 @@ class Firebase{
        this.firebaseAuth.signInWithPopup(googleProvider)
     
     }
+    signIn(email,password){
+        this.firebaseAuth.signInWithEmailAndPassword(email,password)
+    }
+
+    signOut(){
+        this.firebaseAuth.signOut()
+    }
 }
 
 export default new Firebase()

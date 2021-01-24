@@ -20,7 +20,8 @@ export default function Signin() {
           password:"",
         },
         onSubmit: values => {
-          alert(JSON.stringify(values, null, 2));
+        //   alert(JSON.stringify(values, null, 2));
+        Firebase.signIn(values?.email,values?.password)
         },
       });
 
@@ -62,7 +63,7 @@ export default function Signin() {
 
                     </Grid>
                     <Grid item xs={12}>
-                        <Button type="submit" variant="contained" color="primary" fullWidth>
+                        <Button type="submit" variant="contained" color="primary" fullWidth >
                             Login
                     </Button>
 
